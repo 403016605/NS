@@ -8,9 +8,9 @@ namespace NS.Kernel.Reflection
     public interface IAssemblyFinder
     {
         /// <summary>
-        /// This method should return all assemblies used by application.
+        /// 获取当前程序所使用的所有程序集.
         /// </summary>
-        /// <returns>List of assemblies</returns>
+        /// <returns>程序集集合</returns>
         List<Assembly> GetAllAssemblies();
     }
 }

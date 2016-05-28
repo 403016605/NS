@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Aspects\AspectAttribute.cs" />
     <Compile Include="Bootstrap.cs" />
     <Compile Include="Exceptions\NsException.cs" />
     <Compile Include="Exceptions\NsValidationException.cs" />
