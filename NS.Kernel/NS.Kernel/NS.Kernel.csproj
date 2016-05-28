@@ -48,7 +48,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Aspects\NsInterceptorBase.cs" />
     <Compile Include="Aspects\AspectAttribute.cs" />
+    <Compile Include="Aspects\INsAfterExecutionInterceptionContext.cs" />
+    <Compile Include="Aspects\INsBeforeExecutionInterceptionContext.cs" />
+    <Compile Include="Aspects\INsInterceptionContext.cs" />
+    <Compile Include="Aspects\INsInterceptor.cs" />
+    <Compile Include="Aspects\Test_Acpects.cs" />
     <Compile Include="Bootstrap.cs" />
     <Compile Include="Exceptions\NsException.cs" />
     <Compile Include="Exceptions\NsValidationException.cs" />
