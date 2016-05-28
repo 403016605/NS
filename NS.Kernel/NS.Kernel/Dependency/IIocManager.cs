@@ -1,12 +1,16 @@
-﻿using System;
+﻿using Castle.Windsor;
+using NS.Kernel.Shared;
+using System;
 
-namespace NS.Kernel
+namespace NS.Kernel.Dependency
 {
     /// <summary>
     /// 
     /// </summary>
     public interface IIocManager
     {
+        IWindsorContainer IocContainer { get; }
+
         #region 注册
 
         /// <summary>
@@ -112,10 +116,5 @@ namespace NS.Kernel
         bool IsRegistered<TType>();
 
         #endregion
-    }
-
-    public enum DependencyLifeStyle
-    {
-        Singleton, Transient
     }
 }
