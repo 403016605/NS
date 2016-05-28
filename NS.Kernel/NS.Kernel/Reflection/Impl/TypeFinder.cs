@@ -9,15 +9,15 @@ namespace NS.Kernel.Reflection.Impl
 {
     public class TypeFinder : ITypeFinder
     {
+        public TypeFinder()
+        {
+            AssemblyFinder = CurrentDomainAssemblyFinder.Instance;
+            Logger = NullLogger.Instance;
+        }
+
         public ILogger Logger { get; set; }
 
         public IAssemblyFinder AssemblyFinder { get; set; }
-
-        public TypeFinder()
-        {
-            this.AssemblyFinder = CurrentDomainAssemblyFinder.Instance;
-            this.Logger = NullLogger.Instance;
-        }
 
         public Type[] Find(Func<Type, bool> predicate)
         {

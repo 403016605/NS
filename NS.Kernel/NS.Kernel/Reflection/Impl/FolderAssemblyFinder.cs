@@ -6,29 +6,29 @@ namespace NS.Kernel.Reflection.Impl
 {
     public class FolderAssemblyFinder : IAssemblyFinder
     {
-        public string FolderPath { get; private set; }
-
-        public SearchOption SearchOption { get; private set; }
+        private readonly object _syncLock = new object();
 
         private List<Assembly> _assemblies;
 
-        private readonly object _syncLock = new object();
-
         public FolderAssemblyFinder(string folderPath, SearchOption searchOption = SearchOption.TopDirectoryOnly)
         {
-            this.FolderPath = folderPath;
-            this.SearchOption = searchOption;
+            FolderPath = folderPath;
+            SearchOption = searchOption;
         }
+
+        public string FolderPath { get; }
+
+        public SearchOption SearchOption { get; }
 
         public List<Assembly> GetAllAssemblies()
         {
-            if (this._assemblies == null)
+            if (_assemblies == null)
             {
                 lock (_syncLock)
                 {
-                    if (this._assemblies == null)
+                    if (_assemblies == null)
                     {
-                        this._assemblies = GetAllAssembliesInternal();
+                        _assemblies = GetAllAssembliesInternal();
                     }
                 }
             }
@@ -39,9 +39,9 @@ namespace NS.Kernel.Reflection.Impl
         private List<Assembly> GetAllAssembliesInternal()
         {
             var assemblies = new List<Assembly>();
-            string[] dllFiles = Directory.GetFiles(FolderPath, "*.dll", SearchOption);
+            var dllFiles = Directory.GetFiles(FolderPath, "*.dll", SearchOption);
 
-            foreach (string dllFile in dllFiles)
+            foreach (var dllFile in dllFiles)
             {
                 assemblies.Add(Assembly.LoadFile(dllFile));
             }

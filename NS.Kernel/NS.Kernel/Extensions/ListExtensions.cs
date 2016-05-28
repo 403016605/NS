@@ -1,13 +1,12 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace NS.Kernel.Extensions
 {
     public static class ListExtensions
     {
         /// <summary>
-        /// Sort a list by a topological sorting, which consider their  dependencies
+        ///     Sort a list by a topological sorting, which consider their  dependencies
         /// </summary>
         /// <typeparam name="T">The type of the members of values.</typeparam>
         /// <param name="source">A list of objects to sort</param>
@@ -31,17 +30,17 @@ namespace NS.Kernel.Extensions
         }
 
         /// <summary>
-        /// 
         /// </summary>
         /// <typeparam name="T">The type of the members of values.</typeparam>
         /// <param name="item">Item to resolve</param>
         /// <param name="getDependencies">Function to resolve the dependencies</param>
         /// <param name="sorted">List with the sortet items</param>
         /// <param name="visited">Dictionary with the visited items</param>
-        private static void SortByDependenciesVisit<T>(T item, Func<T, IEnumerable<T>> getDependencies, List<T> sorted, Dictionary<T, bool> visited)
+        private static void SortByDependenciesVisit<T>(T item, Func<T, IEnumerable<T>> getDependencies, List<T> sorted,
+            Dictionary<T, bool> visited)
         {
             bool inProcess;
-            bool alreadyVisited = visited.TryGetValue(item, out inProcess);
+            var alreadyVisited = visited.TryGetValue(item, out inProcess);
 
             if (alreadyVisited)
             {
@@ -54,7 +53,7 @@ namespace NS.Kernel.Extensions
             {
                 visited[item] = true;
 
-                IEnumerable<T> dependencies = getDependencies(item);
+                var dependencies = getDependencies(item);
                 if (dependencies != null)
                 {
                     foreach (var dependency in dependencies)
@@ -68,5 +67,4 @@ namespace NS.Kernel.Extensions
             }
         }
     }
-
 }

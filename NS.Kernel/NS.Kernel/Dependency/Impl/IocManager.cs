@@ -1,21 +1,21 @@
-﻿using Castle.MicroKernel.Registration;
+﻿using System;
+using Castle.MicroKernel.Registration;
 using Castle.Windsor;
 using NS.Kernel.Shared;
-using System;
 
 namespace NS.Kernel.Dependency.Impl
 {
     public class IocManager : IIocManager
     {
-        public static IocManager Instance { get; private set; }
-
         public IocManager()
         {
-            this.IocContainer = new WindsorContainer();
+            IocContainer = new WindsorContainer();
             IocContainer.Register(Component.For<IocManager, IIocManager>().UsingFactoryMethod(() => this));
         }
 
-        public IWindsorContainer IocContainer { get; private set; }
+        public static IocManager Instance { get; private set; }
+
+        public IWindsorContainer IocContainer { get; }
 
         public bool IsRegistered(Type type)
         {
@@ -24,7 +24,7 @@ namespace NS.Kernel.Dependency.Impl
 
         public bool IsRegistered<TType>()
         {
-            return IocContainer.Kernel.HasComponent(typeof(TType));
+            return IocContainer.Kernel.HasComponent(typeof (TType));
         }
 
         public void Register(Type type, DependencyLifeStyle lifeStyle = DependencyLifeStyle.Singleton)
@@ -72,6 +72,10 @@ namespace NS.Kernel.Dependency.Impl
             return (T) IocContainer.Resolve(type);
         }
 
+        public void Release(object obj)
+        {
+            IocContainer.Release(obj);
+        }
 
 
         public void Dispose()
@@ -79,12 +83,8 @@ namespace NS.Kernel.Dependency.Impl
             IocContainer.Dispose();
         }
 
-        public void Release(object obj)
-        {
-            IocContainer.Release(obj);
-        }
-
-        private static ComponentRegistration<T> ApplyLifestyle<T>(ComponentRegistration<T> registration, DependencyLifeStyle lifeStyle)
+        private static ComponentRegistration<T> ApplyLifestyle<T>(ComponentRegistration<T> registration,
+            DependencyLifeStyle lifeStyle)
             where T : class
         {
             switch (lifeStyle)

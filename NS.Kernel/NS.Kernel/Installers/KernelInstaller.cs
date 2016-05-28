@@ -1,10 +1,10 @@
 using Castle.MicroKernel.Registration;
-using Castle.Windsor;
 using Castle.MicroKernel.SubSystems.Configuration;
-using NS.Kernel.Reflection;
+using Castle.Windsor;
 using NS.Kernel.Modules;
-using NS.Kernel.Reflection.Impl;
 using NS.Kernel.Modules.Impl;
+using NS.Kernel.Reflection;
+using NS.Kernel.Reflection.Impl;
 
 namespace NS.Kernel.Installers
 {

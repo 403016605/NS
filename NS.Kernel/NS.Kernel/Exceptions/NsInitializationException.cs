@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 
 namespace NS.Kernel.Exceptions
 {
@@ -7,34 +6,29 @@ namespace NS.Kernel.Exceptions
     public class NsInitializationException : NsException
     {
         /// <summary>
-        /// Constructor.
+        ///     Constructor.
         /// </summary>
         public NsInitializationException()
         {
-
         }
 
         /// <summary>
-        /// Constructor.
+        ///     Constructor.
         /// </summary>
         /// <param name="message">Exception message</param>
         public NsInitializationException(string message)
             : base(message)
         {
-
         }
 
         /// <summary>
-        /// Constructor.
+        ///     Constructor.
         /// </summary>
         /// <param name="message">Exception message</param>
         /// <param name="innerException">Inner exception</param>
         public NsInitializationException(string message, Exception innerException)
             : base(message, innerException)
         {
-
         }
     }
-
-
 }

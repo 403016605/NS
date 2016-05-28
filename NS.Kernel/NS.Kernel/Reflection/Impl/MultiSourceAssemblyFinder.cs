@@ -6,14 +6,14 @@ namespace NS.Kernel.Reflection.Impl
 {
     public class MultiSourceAssemblyFinder : IAssemblyFinder
     {
-        public List<IAssemblyFinder> Sources { get; private set; }
-
         public MultiSourceAssemblyFinder(params IAssemblyFinder[] sources)
         {
-            this.Sources = sources == null
+            Sources = sources == null
                 ? new List<IAssemblyFinder>()
                 : sources.ToList();
         }
+
+        public List<IAssemblyFinder> Sources { get; }
 
         public List<Assembly> GetAllAssemblies()
         {

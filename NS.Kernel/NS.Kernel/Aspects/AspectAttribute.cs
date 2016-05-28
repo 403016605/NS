@@ -7,12 +7,12 @@ namespace NS.Kernel.Aspects
 
     internal abstract class AspectAttribute : Attribute
     {
-        public Type InterceptorType { get; set; }
-
         protected AspectAttribute(Type interceptorType)
         {
             InterceptorType = interceptorType;
         }
+
+        public Type InterceptorType { get; set; }
     }
 
     internal interface IAbpInterceptionContext
@@ -30,7 +30,6 @@ namespace NS.Kernel.Aspects
 
     internal interface IAbpBeforeExecutionInterceptionContext : IAbpInterceptionContext
     {
-
     }
 
 
@@ -65,12 +64,12 @@ namespace NS.Kernel.Aspects
     {
         internal class MyAspectAttribute : AspectAttribute
         {
-            public int TestValue { get; set; }
-
             public MyAspectAttribute()
-                : base(typeof(MyInterceptor))
+                : base(typeof (MyInterceptor))
             {
             }
+
+            public int TestValue { get; set; }
         }
 
         internal class MyInterceptor : AbpInterceptorBase<MyAspectAttribute>
@@ -91,7 +90,6 @@ namespace NS.Kernel.Aspects
             [MyAspect(TestValue = 41)] //Usage!
             public void DoIt()
             {
-
             }
         }
 

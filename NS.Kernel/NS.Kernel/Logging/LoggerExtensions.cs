@@ -5,7 +5,7 @@ using NS.Kernel.Exceptions;
 namespace NS.Kernel.Logging
 {
     /// <summary>
-    /// Extensions for <see cref="ILogger"/>.
+    ///     Extensions for <see cref="ILogger" />.
     /// </summary>
     public static class LoggerExtensions
     {
