@@ -1,9 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NS.Kernel", "NS.Kernel\NS.Kernel.csproj", "{1C350FFB-11D0-4D0F-9ADE-0D9D21FDA8A9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NS.Console", "NS.Console\NS.Console.csproj", "{C7802B93-6421-451E-AECC-CEBE5223587A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NS.Calc", "NS.Calc\NS.Calc.csproj", "{01F67A46-D87F-4C4F-9012-033E5AF132BE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{1C350FFB-11D0-4D0F-9ADE-0D9D21FDA8A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1C350FFB-11D0-4D0F-9ADE-0D9D21FDA8A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1C350FFB-11D0-4D0F-9ADE-0D9D21FDA8A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7802B93-6421-451E-AECC-CEBE5223587A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7802B93-6421-451E-AECC-CEBE5223587A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7802B93-6421-451E-AECC-CEBE5223587A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7802B93-6421-451E-AECC-CEBE5223587A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01F67A46-D87F-4C4F-9012-033E5AF132BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01F67A46-D87F-4C4F-9012-033E5AF132BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01F67A46-D87F-4C4F-9012-033E5AF132BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01F67A46-D87F-4C4F-9012-033E5AF132BE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

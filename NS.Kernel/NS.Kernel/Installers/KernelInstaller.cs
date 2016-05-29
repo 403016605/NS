@@ -12,11 +12,12 @@ namespace NS.Kernel.Installers
     {
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {
-            container.Register(
-                Component.For<ITypeFinder>().ImplementedBy<TypeFinder>().LifestyleSingleton(),
-                Component.For<IModuleFinder>().ImplementedBy<ModuleFinder>().LifestyleTransient(),
-                Component.For<IModuleManager>().ImplementedBy<ModuleManager>().LifestyleSingleton()
-                );
+            //container.Register(
+            //    Component.For<IAssemblyFinder>().ImplementedBy<FolderAssemblyFinder>().LifestyleSingleton(),
+            //    Component.For<ITypeFinder>().ImplementedBy<TypeFinder>().LifestyleSingleton(),
+            //    Component.For<IModuleFinder>().ImplementedBy<ModuleFinder>().LifestyleTransient(),
+            //    Component.For<IModuleManager>().ImplementedBy<ModuleManager>().LifestyleSingleton()
+            //    );
         }
     }
 }

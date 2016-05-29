@@ -1,7 +1,7 @@
-﻿using System;
-using NS.Kernel.Dependency;
+﻿using NS.Kernel.Dependency;
 using NS.Kernel.Installers;
 using NS.Kernel.Modules;
+using System;
 
 namespace NS.Kernel
 {
@@ -32,6 +32,27 @@ namespace NS.Kernel
         public Bootstrap(IIocManager iocManager)
         {
             IocManager = iocManager;
+        }
+
+        // Creates an syn object.
+        private static readonly object SynObject = new object();
+
+        private static Bootstrap _instance = null;
+        public static Bootstrap Instance
+        {
+            get
+            {
+                // Double-Checked Locking
+                if (null != _instance) return _instance;
+                lock (SynObject)
+                {
+                    if (null == _instance)
+                    {
+                        _instance = new Bootstrap();
+                    }
+                }
+                return _instance;
+            }
         }
 
         /// <summary>

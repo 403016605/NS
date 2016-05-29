@@ -1,6 +1,7 @@
-﻿using System;
-using Castle.Windsor;
+﻿using Castle.Windsor;
 using NS.Kernel.Shared;
+using System;
+using System.Reflection;
 
 namespace NS.Kernel.Dependency
 {
@@ -115,5 +116,10 @@ namespace NS.Kernel.Dependency
         bool IsRegistered<TType>();
 
         #endregion
+
+        void RegisterAssembly(Assembly assembly);
+
+        void RegisterAssembly<TType>(Assembly assembly, DependencyLifeStyle dependencyLifeStyle) where TType : class;
+
     }
 }

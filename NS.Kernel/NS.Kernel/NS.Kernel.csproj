@@ -57,6 +57,8 @@
     <Compile Include="Aspects\INsInterceptor.cs" />
     <Compile Include="Aspects\Test_Acpects.cs" />
     <Compile Include="Bootstrap.cs" />
+    <Compile Include="Dependency\ISingletonDependency.cs" />
+    <Compile Include="Dependency\ITransientDependency.cs" />
     <Compile Include="Exceptions\NsException.cs" />
     <Compile Include="Exceptions\NsValidationException.cs" />
     <Compile Include="Exceptions\NsInitializationException.cs" />

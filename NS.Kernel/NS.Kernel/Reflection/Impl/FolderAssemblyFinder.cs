@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
@@ -14,6 +15,12 @@ namespace NS.Kernel.Reflection.Impl
         {
             FolderPath = folderPath;
             SearchOption = searchOption;
+        }
+
+        public FolderAssemblyFinder()
+        {
+            FolderPath = AppDomain.CurrentDomain.BaseDirectory;
+            SearchOption = SearchOption.TopDirectoryOnly;
         }
 
         public string FolderPath { get; }
