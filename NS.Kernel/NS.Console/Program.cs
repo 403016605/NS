@@ -7,6 +7,7 @@ namespace NS.Console
         static void Main(string[] args)
         {
             Bootstrap.Instance.Initialize();
+            Bootstrap.Instance.Dispose();
             System.Console.ReadKey();
         }
     }

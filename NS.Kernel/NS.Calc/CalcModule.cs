@@ -7,26 +7,26 @@ namespace NS.Calc
     {
         public override void PreInitialize()
         {
-            Console.WriteLine("A PreInitialize...");
+            Console.WriteLine("初始化【之前】...");
         }
 
         public override void Initialize()
         {
-            Console.WriteLine("A 初始化开始...");
+            Console.WriteLine("初始化...");
 
             this.IocManager.RegisterAssembly(Assembly.GetExecutingAssembly());
-
-            Console.WriteLine("A 初始化结束...");
         }
 
         public override void PostInitialize()
         {
-            Console.WriteLine("A PostInitialize...");
+            Console.WriteLine($"{this.IocManager.Resolve<ICalc>().Add(1, 1)}");
+
+            Console.WriteLine("初始化【之前】...");
         }
 
         public override void Shutdown()
         {
-            Console.WriteLine("A Shutdown...");
+            Console.WriteLine("关闭...");
         }
     }
 }
